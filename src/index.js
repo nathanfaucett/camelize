@@ -4,12 +4,12 @@ var reInflect = require("re_inflect"),
 
 module.exports = function camelize(string, lowFirstLetter) {
     var parts = string.match(reInflect),
-        i = lowFirstLetter !== false ? 0 : -1,
-        il = parts.length - 1;
+        i = parts.length;
 
-    while (i++ < il) {
+    while (i--) {
         parts[i] = capitalizeString(parts[i]);
     }
+    string = parts.join("");
 
-    return parts.join("");
+    return lowFirstLetter !== false ? string.charAt(0).toLowerCase() + string.slice(1) : string;
 };

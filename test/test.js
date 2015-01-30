@@ -3,7 +3,7 @@ var assert = require("assert"),
 
 
 describe("camelize(string : String[, lowFirstLetter : Boolean])", function() {
-    it("should capitalize string", function() {
+    it("should camelize string", function() {
         assert.equal(camelize("string-string", false), "StringString");
         assert.equal(camelize("string-string", true), "stringString");
         assert.equal(camelize("string-string"), "stringString");
