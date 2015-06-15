@@ -7,12 +7,12 @@ module.exports = camelize;
 
 function camelize(string, lowFirstLetter) {
     var parts = string.match(reInflect),
-        i = parts.length;
+        i = lowFirstLetter !== false ? 0 : -1,
+        il = parts.length - 1;
 
-    while (i--) {
+    while (i++ < il) {
         parts[i] = capitalizeString(parts[i]);
     }
-    string = parts.join("");
 
-    return lowFirstLetter !== false ? string.charAt(0).toLowerCase() + string.slice(1) : string;
+    return parts.join("");
 }
