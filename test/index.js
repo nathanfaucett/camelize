@@ -3,6 +3,7 @@ var tape = require("tape"),
 
 
 tape("camelize(string : String[, lowFirstLetter : Boolean])", function(assert) {
+    assert.equal(camelize("String-string", false), "StringString");
     assert.equal(camelize("string-string", false), "StringString");
     assert.equal(camelize("string-string", true), "stringString");
     assert.equal(camelize("string-string"), "stringString");
